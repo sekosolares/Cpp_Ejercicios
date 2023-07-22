@@ -10,32 +10,31 @@ long double coseno(long double number);
 long double seno(long double number);
 long double fact(long double n);
 
-int main(int argc, char** argv) {
+int main() {
 	int opc;
 	float num;
 	char resp = 'S';
-	
+
 	ofstream Resultados("Resultados.txt", ios::out|ios::app);
-	
+
 	if(!Resultados){
 		cout << "No se puede crear el log de la calculadora." << endl;
 	}else{
 		Resultados << "[Inicio]: Entrada." << endl;
 		while(resp == 'S'||resp == 's'){
-			system("cls");
+
 			cout << "1. Raiz cuadrada" << endl;
 			cout << "2. Potencia Cuadrada" << endl;
 			cout << "3. Potencia (n)" << endl;
 			cout << "4. cos(n)" << endl;
 			cout << "5. sen(n)" << endl;
 			cout << "6. Salir" << endl;
-			
+
 			cout << "Seleccione la opcion que desea:" << endl;
 			cin >> opc;
-			
+
 			switch(opc){
 				case 1:
-					system("cls");
 					cout << "#################### Raiz Cuadrada ####################\n" << endl;
 					cout << "Ingrese el numero :: ";
 					cin >> num;
@@ -43,7 +42,6 @@ int main(int argc, char** argv) {
 					cout << "\nResultado :: " << raizQ(num) << endl;
 					break;
 				case 2:
-					system("cls");
 					cout << "#################### Potencia Cuadrada ####################\n" << endl;
 					cout << "Ingrese el numero a elevar al cuadrado :: ";
 					cin >> num;
@@ -52,7 +50,6 @@ int main(int argc, char** argv) {
 					break;
 				case 3:
 					int exp;
-					system("cls");
 					cout << "#################### Potencia n ####################\n" << endl;
 					cout << "Ingrese la base :: ";
 					cin >> num;
@@ -62,7 +59,6 @@ int main(int argc, char** argv) {
 					cout << "\nResultado :: " << pot(num, exp) << endl;
 					break;
 				case 4:
-					system("cls");
 					cout << "#################### Cos(n) ####################\n" << endl;
 					cout << "Ingrese el numero :: ";
 					cin >> num;
@@ -70,7 +66,6 @@ int main(int argc, char** argv) {
 					cout << "\nResultado :: " << coseno(num) << endl;
 					break;
 				case 5:
-					system("cls");
 					cout << "#################### Sen(n) ####################\n" << endl;
 					cout << "Ingrese el numero :: ";
 					cin >> num;
@@ -80,19 +75,19 @@ int main(int argc, char** argv) {
 				case 6:
 					Resultados << "[opcion 6-salida]: Salida.\n";
 					Resultados.close();
-					exit(0);
+					__throw_system_error(0);
 					break;
 				default:
 					Resultados << "[invalida]: Opcion no valida ingresada!" << endl;
 					cout << "Seleccione una opcion valida!" << endl;
 					break;
 			}
-			
+
 			cout << "\nDesea usar otra opcion?(s/n)" << endl;
 			cin >> resp;
-			
+
 			while(resp != 'n' && resp != 'N' && resp != 's' && resp != 'S'){
-				system("cls");
+
 				cout << "Por favor, ingrese una respuesta valida." << endl;
 				cout << "\nDesea usar otra opcion?(s/n)" << endl;
 				cout << "\t'S' para 'Si' ... 'N' para 'No'" << endl;
@@ -102,7 +97,7 @@ int main(int argc, char** argv) {
 	}
 	Resultados << "[Salida]: Salida.\n";
 	Resultados.close();
-		
+
 	return 0;
 }
 
@@ -113,14 +108,14 @@ float raizQ(float number){
 		raiz += 0.00001;
 		i = raiz*raiz;
 	}
-	
+
 	return raiz;
 }
 
 float pot2(float number){
 	float cuadrado;
 	cuadrado = number*number;
-	
+
 	return cuadrado;
 }
 
